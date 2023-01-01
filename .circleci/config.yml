@@ -125,9 +125,7 @@ jobs:
             npm update
             npm i
             npm audit fix --audit-level=critical --force
-            npm audit fix --force
-            npm audit fix --force
-            npm install --save-dev mini-css-extract-plugin@2.7.2
+            # npm audit fix --force
             npm audit --audit-level=critical
       
 
@@ -149,9 +147,8 @@ jobs:
             npm update
             npm i
             npm audit fix --audit-level=critical --force
-            npm audit fix --audit-level=critical --force
-            npm audit fix --force
-            npm update path-parse --depth 3
+            # npm audit fix --audit-level=critical --force
+            # npm audit fix --force
             npm audit --audit-level=critical
 
   deploy-infrastructure:
