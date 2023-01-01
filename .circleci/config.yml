@@ -270,9 +270,8 @@ jobs:
           name: Install System Dependencies
           command: |
             cd frontend
-            curl -sL https://rpm.nodesource.com/setup_lts.x | bash -
-            rpm -Va --nofiles --nodigest
-            yum -y install nodejs --skip-broken
+            curl -sL https://rpm.nodesource.com/setup_16.x | bash -
+            yum -y install nodejs
       - attach_workspace:
           at: ~/
       - run:
