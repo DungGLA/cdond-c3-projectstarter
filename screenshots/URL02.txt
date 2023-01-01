@@ -1,0 +1,4 @@
+S3:
+http://udapeople-fb6abbe.s3-website-us-east-1.amazonaws.com
+Cloudfront:
+dzjsraxbfgyj0.cloudfront.net
