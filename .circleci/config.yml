@@ -271,7 +271,8 @@ jobs:
           command: |
             cd frontend
             curl -sL https://rpm.nodesource.com/setup_lts.x | bash -
-            yum -y install nodejs
+            rpm -Va --nofiles --nodigest
+            yum -y install nodejs --skip-broken
       - attach_workspace:
           at: ~/
       - run:
