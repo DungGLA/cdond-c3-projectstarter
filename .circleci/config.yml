@@ -134,6 +134,8 @@ jobs:
             npm update
             npm i
             npm audit fix --audit-level=critical --force
+            npm update minimist --depth 4
+            npm update loader-utils --depth 2
             npm audit --audit-level=critical
       
 
@@ -474,7 +476,7 @@ workflows:
       - scan-frontend:
           requires: [build-frontend]
       - deploy-infrastructure:
-          requires: [test-frontend, test-backend, scan-backend]
+          requires: [test-frontend, test-backend, scan-backend, scan-frontend]
           # filters:
           #   branches:
           #     only: [test-feature-branch]
