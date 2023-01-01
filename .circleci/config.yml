@@ -125,8 +125,8 @@ jobs:
       # Restore from cache
       # Your job code here
       - checkout
-      - restore_cache:
-          keys: [frontend-build]
+      # - restore_cache:
+      #     keys: [frontend-build]
       - run:
           name: Scan frontend
           command: |
@@ -146,8 +146,8 @@ jobs:
       # Restore from cache
       # Your job code here
       - checkout
-      - restore_cache:
-          keys: [backend-build]
+      # - restore_cache:
+      #     keys: [backend-build]
       - run:
           name: Scan the Backend
           command: |
@@ -156,6 +156,7 @@ jobs:
             npm i
             npm audit fix --audit-level=critical --force
             npm audit fix --audit-level=critical --force
+            npm audit fix --force
             npm audit --audit-level=critical
 
   deploy-infrastructure:
@@ -468,12 +469,12 @@ workflows:
           requires: [build-frontend]
       - test-backend:
           requires: [build-backend]
-      # - scan-backend:
-      #     requires: [build-backend]
-      # - scan-frontend:
-      #     requires: [build-frontend]
+      - scan-backend:
+          requires: [build-backend]
+      - scan-frontend:
+          requires: [build-frontend]
       - deploy-infrastructure:
-          requires: [test-frontend, test-backend ]
+          requires: [test-frontend, test-backend, scan-backend]
           # filters:
           #   branches:
           #     only: [test-feature-branch]
